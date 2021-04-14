@@ -27,7 +27,7 @@ func main() {
 
 	fmt.Printf("%c\n", 33) // character corresponding to the integer: !
 
-	fmt.Print("%x\n", 456) // hex encoding: 1c8
+	fmt.Printf("%x\n", 456) // hex encoding: 1c8
 
 	fmt.Printf("%f\n", 78.9) // basic decimal formatting for float: 78.900000
 
@@ -43,4 +43,22 @@ func main() {
 
 	fmt.Printf("%p\n", &p) // pointer: 0x42135100
 
+	// Width precision of numbers
+	// Default right-justified, padded with space
+	fmt.Printf("|%6d|%6d|\n", 12, 345) // |    12|   345|
+
+	fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45) // width precision with decimal precision: |  1.20|  3.45|
+
+	fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45) // Use - flat to left justify: |1.20  |3.45  |
+
+	fmt.Printf("|%6s|%6s|\n", "foo", "b") // width precision for strings: |   foo|     b|
+
+	fmt.Printf("|%-6s|%-6s|\n", "foo", "b") // Use - flat to left justify: |foo   |b     |
+
+	// Sprintf formats ands returns a string (without printing it anywhere)
+	s := fmt.Sprintf("a %s", "string")
+	fmt.Println(s)
+
+	// Use Fprintf to format and print to io.Writers other than os.Stdout
+	fmt.Fprintf(os.Stderr, "an %s\n", "error")
 }
